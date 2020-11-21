@@ -15,3 +15,4 @@ tensor_list = architect.build_model(input_shape=model_input_shape, layer_config_
 mnist_model = keras.models.Model(inputs=tensor_list[0], outputs=tensor_list[-1])
 mnist_model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 mnist_model.fit(x=np.expand_dims(x_train, axis=3), y=y_train, epochs=10)
+mnist_model.evaluate(x=np.expand_dims(x_test, axis=3), y=y_test)
